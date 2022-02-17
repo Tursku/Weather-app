@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
 
-  const apiKey = 'vEGZibTVawfqRIE5pSeypYIMAtICMhqg'
+  const apiKey = 'df8CGwZn2IAh03vv7XvpH3xCgbyLYKSl'
 
   const [locationKey, setLocationKey] = useState("")
   const [weatherData, setWeatherData] = useState("")
@@ -13,13 +13,13 @@ function App() {
 
   const getWeather = (event) => {
     if (event.key === "Enter") {
-      fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}=${city}`)
+      fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${city}`)
         .then(response => response.json()).then(data => {
-          setLocationKey(data)
-
+          setLocationKey(data);
         })
+      
 
-      fetch(`http://dataservice.accuweather.com/currentconditions/v1/133328?apikey=${apiKey}`)
+      fetch(`http://dataservice.accuweather.com/currentconditions/v1/${locationKey[0].Key}?apikey=${apiKey}`)
         .then(response => response.json()).then(data => {
           setWeatherData(data)
         }
@@ -28,7 +28,7 @@ function App() {
     }
   }
 
-  return (
+  return ( 
     <div className="container">
       <input
         className='input'
@@ -43,15 +43,16 @@ function App() {
         <div>
           <p>Weather app</p>
         </div>
+
       ) : (
+        
         <div className='weather-data'>
-          <p className='city' >{city}</p>
-
+          <p className='city' >{locationKey[0].EnglishName}</p>
           <p className='temperature' >{Math.round(weatherData[0].Temperature.Metric.Value)}°C</p>
-
-          <img src={require(`./images/${weatherData[0].WeatherIcon}.png`)} className='image' />
-
+          <img src={require(`./images/${weatherData[0].WeatherIcon}.png`)} className='image' alt='Weather icon' />
           <p className='weather-text' >{weatherData[0].WeatherText}</p>
+
+         
 
 
 
