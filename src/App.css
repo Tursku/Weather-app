@@ -10,6 +10,11 @@
 
 }
 
+.welcome{
+  text-align: center;
+  font-size: 20px;
+}
+
 .input { /* The search bar settings */
   display: block;
   width: 100%;
