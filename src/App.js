@@ -52,12 +52,6 @@ function App() {
           <img src={require(`./images/${weatherData[0].WeatherIcon}.png`)} className='image' alt='Weather icon' />
           <p className='weather-text' >{weatherData[0].WeatherText}</p>
 
-         
-
-
-
-
-
         </div>
       )}
 
