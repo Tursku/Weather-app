@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
 
-  const apiKey = 'df8CGwZn2IAh03vv7XvpH3xCgbyLYKSl'
+  const apiKey = '6tZOj1apRIuylHjSVpcClMeloiQFkSLO'
 
   const [locationKey, setLocationKey] = useState("")
   const [weatherData, setWeatherData] = useState("")
@@ -18,7 +18,7 @@ function App() {
           setLocationKey(data);
         })
       
-  
+    
       fetch(`http://dataservice.accuweather.com/currentconditions/v1/${locationKey[0].Key}?apikey=${apiKey}`)
         .then(response => response.json()).then(data => {
           setWeatherData(data)
