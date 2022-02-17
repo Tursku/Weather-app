@@ -18,7 +18,7 @@ function App() {
           setLocationKey(data);
         })
       
-
+  
       fetch(`http://dataservice.accuweather.com/currentconditions/v1/${locationKey[0].Key}?apikey=${apiKey}`)
         .then(response => response.json()).then(data => {
           setWeatherData(data)
