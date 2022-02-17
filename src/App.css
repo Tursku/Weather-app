@@ -20,3 +20,28 @@
 .input:focus{
   outline: none;
 }
+
+.weather-data {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border: 1px solid lightgray;
+  border-radius: 15px;
+
+}
+
+.city {
+  font-size: 30px;
+  font-weight: 200;
+}
+
+.temperature {
+  font-size: 90px;
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-radius: 12px;
+}

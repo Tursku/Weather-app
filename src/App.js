@@ -1,19 +1,16 @@
 
 import React, { useState } from 'react';
 import './App.css';
-import { getCity } from './weather.js'
-import { getWeather } from './weather.js'
 
 
 function App() {
 
-  const apiKey = 'Yj7PbGaTqMeArQC7KArjGRQ1u4b2bXdl'
+  const apiKey = 'vEGZibTVawfqRIE5pSeypYIMAtICMhqg'
   const [weatherData, setWeatherData] = useState("")
   const [city, setCity] = useState("")
 
-
   const getWeather = (event) => {
-    if (event.key = "Enter") {
+    if (event.key === "Enter") {
       fetch(`http://dataservice.accuweather.com/currentconditions/v1/133328?apikey=${apiKey}`).then(
         response => response.json()
       ).then(
@@ -21,13 +18,9 @@ function App() {
           setWeatherData(data)
         }
       )
-      
+
     }
   }
-
-
-
-
 
   return (
     <div className="container">
@@ -40,13 +33,23 @@ function App() {
 
       />
 
-      {typeof weatherData.main == 'undefined' ? (
+      {typeof weatherData[0] === 'undefined' ? (
         <div>
-          <p>Täs o ny sää-appi</p>
+          <p>Enter city</p>
+        </div>
+      ) : (
+        <div className='weather-data'>
+          <p className='city' >{city}</p>
+          <p className='temperature' >{weatherData[0].Temperature.Metric.Value}°C</p>
+          <p className='precipitation-type' >{weatherData[0].PrecipitationType} (image)</p>
+          <p className='weather-text' >{weatherData[0].WeatherText}</p>
+          
+          
+        </div>
       )}
 
     </div>
-  );
+  )
 }
 
 export default App;
