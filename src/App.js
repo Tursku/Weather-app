@@ -1,7 +1,7 @@
 
+import { func } from 'prop-types';
 import React, { useState } from 'react';
 import './App.css';
-
 
 function App() {
 
@@ -16,17 +16,20 @@ function App() {
       fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${city}`)
         .then(response => response.json()).then(data => {
           setLocationKey(data);
-        })
+        }).then(
       
     
+    setTimeout(function() { /* This needs timeout for some reason but it works now!! */
       fetch(`http://dataservice.accuweather.com/currentconditions/v1/${locationKey[0].Key}?apikey=${apiKey}`)
         .then(response => response.json()).then(data => {
           setWeatherData(data)
         }
         )
-
+      },500))
     }
   }
+
+
 
   return ( 
     <div className="container">
@@ -36,7 +39,6 @@ function App() {
         onChange={e => setCity(e.target.value)}
         value={city}
         onKeyPress={getWeather}
-
       />
 
       {typeof weatherData[0] === 'undefined' ? (
