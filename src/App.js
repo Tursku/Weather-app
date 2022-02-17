@@ -40,9 +40,14 @@ function App() {
       ) : (
         <div className='weather-data'>
           <p className='city' >{city}</p>
+          
           <p className='temperature' >{Math.round(weatherData[0].Temperature.Metric.Value)}°C</p>
-          <img src={ require(`./images/${weatherData[0].WeatherIcon}.png`) } />
+          
+          <img src={ require(`./images/${weatherData[0].WeatherIcon}.png`) } className='image'/>
+
           <p className='weather-text' >{weatherData[0].WeatherText}</p>
+
+          
           
           
           
