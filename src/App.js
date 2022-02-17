@@ -40,8 +40,8 @@ function App() {
       ) : (
         <div className='weather-data'>
           <p className='city' >{city}</p>
-          <p className='temperature' >{weatherData[0].Temperature.Metric.Value}°C</p>
-          <p className='precipitation-type' >{weatherData[0].PrecipitationType} (image)</p>
+          <p className='temperature' >{Math.round(weatherData[0].Temperature.Metric.Value)}°C</p>
+          <p className='precipitation-type' >{weatherData[0].WeatherIcon} (image)</p>
           <p className='weather-text' >{weatherData[0].WeatherText}</p>
           
           
