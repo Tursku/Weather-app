@@ -35,14 +35,15 @@ function App() {
 
       {typeof weatherData[0] === 'undefined' ? (
         <div>
-          <p>Enter city</p>
+          <p>Weather app</p>
         </div>
       ) : (
         <div className='weather-data'>
           <p className='city' >{city}</p>
           <p className='temperature' >{Math.round(weatherData[0].Temperature.Metric.Value)}°C</p>
-          <p className='precipitation-type' >{weatherData[0].WeatherIcon} (image)</p>
+          <img src={ require(`./images/${weatherData[0].WeatherIcon}.png`) } />
           <p className='weather-text' >{weatherData[0].WeatherText}</p>
+          
           
           
         </div>

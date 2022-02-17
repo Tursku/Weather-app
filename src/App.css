@@ -7,13 +7,21 @@
 
 }
 
+main {
+  min-height: 100vh;
+}
+
 .input {
+  display: block;
+  width: 100%;
   padding: 15px;
-  width: 80%;
-  margin: auto;
-  border: 1px solid lightgray;
-  border-radius: 6px;
-  font-size: 16px;
+
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+
+  box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
+  color: #313131;
+  font-size: 20px;
 
 }
 
@@ -22,6 +30,7 @@
 }
 
 .weather-data {
+  background-color: aliceblue;
   margin-top: 100px;
   display: flex;
   flex-direction: column;
@@ -31,17 +40,35 @@
   padding-right: 50px;
   border: 1px solid lightgray;
   border-radius: 15px;
+  background-image: url('./images/Backround.jpg');
+  background-size: cover;
+  background-position: bottom;
 
 }
 
 .city {
-  font-size: 30px;
-  font-weight: 200;
+  color: white;
+  font-size: 32px;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
 }
 
 .temperature {
-  font-size: 90px;
-  padding: 10px;
-  border: 1px solid lightgray;
-  border-radius: 12px;
+  position: relative;
+  display: inline-block;
+  margin: 30px auto;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 15px 25px;
+  color: white;
+  font-size: 102px;
+  font-weight: 900;
+  
+  
+  
+  text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
+  text-align: center;
+  box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+
 }
