@@ -3,32 +3,26 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-
   const apiKey = '60rYAme9Ak25tjyihR3ll0u1CzH1LbSl'
-
-
-
   const [locationKey, setLocationKey] = useState("")
   const [weatherData, setWeatherData] = useState("")
   const [city, setCity] = useState("")
+  let startMessage = "Enter any city and press Enter twice!"
 
+  
   const getWeather = (event) => {
-    if (event.key === "Enter") {
-      fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${city}`)
-        .then(response => response.json()).then(data => {
-          setLocationKey(data);
-        })
-        
-      fetch(`http://dataservice.accuweather.com/currentconditions/v1/${locationKey[0].Key}?apikey=${apiKey}`)
-        .then(response => response.json()).then(data => {
-          setWeatherData(data)
-        })
+      if (event.key === "Enter") {
+        fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${city}`)
+          .then(response => response.json()).then(data => {
+            setLocationKey(data);
+          });
 
+        fetch(`http://dataservice.accuweather.com/currentconditions/v1/${locationKey[0].Key}?apikey=${apiKey}`)
+          .then(response => response.json()).then(data => {
+            setWeatherData(data).then(startMessage = "working!!!")
+          }); 
     }
-  }
-
-
-
+    }
   return (
     <div className="container">
       <input
@@ -41,7 +35,7 @@ function App() {
 
       {typeof weatherData[0] === 'undefined' ? (
         <div>
-          <p className='welcome'>Enter any city and press Enter!</p>
+          <p className='welcome'>{startMessage}</p>
         </div>
 
       ) : (
