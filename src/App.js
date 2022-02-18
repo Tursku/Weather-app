@@ -7,7 +7,7 @@ function App() {
   const [locationKey, setLocationKey] = useState("")
   const [weatherData, setWeatherData] = useState("")
   const [city, setCity] = useState("")
-  let startMessage = "Enter any city and press Enter twice!"
+  let startMessage = "Enter any city and press Enter!"
 
   
   const getWeather = (event) => {
