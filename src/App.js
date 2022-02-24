@@ -20,7 +20,7 @@ function App() {
 
     }
     if (weatherData.cod !== "200") {
-      alert(`${weatherData.message}: ${city}`)
+   
     }
   }
   return (
