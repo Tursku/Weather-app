@@ -15,6 +15,10 @@
   font-size: 20px;
 }
 
+.error{
+  display: none;
+}
+
 .input { /* The search bar settings */
   display: block;
   width: 100%;
@@ -103,4 +107,5 @@
   width: 100px;
   text-align: center;
 }
+
 

@@ -7,6 +7,7 @@ function App() {
   const [weatherData, setWeatherData] = useState("")
   const [city, setCity] = useState("")
   let message = "Enter any city and press Enter!"
+  let errorMessage= "Error saatana"
 
   
   const getWeather = (event) => {
@@ -17,11 +18,15 @@ function App() {
           data => {
             setWeatherData(data)
           })
+          if (weatherData.cod !== "200") {
+            var errorElement = document.getElementById("error");
+            errorElement.innerHTML = errorMessage;
+            errorElement.style.display = 'block';
+            
 
+          }
     }
-    if (weatherData.cod !== "200") {
-   
-    }
+
   }
   return (
     <div className="container">
@@ -36,6 +41,7 @@ function App() {
       {typeof weatherData.main === 'undefined' ? (
         <div>
           <p className='welcome'>{message}</p>
+          <p className='error' >{errorMessage}</p>
         </div>
 
       ) : (
