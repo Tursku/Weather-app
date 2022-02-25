@@ -12,19 +12,13 @@ function App() {
   
   const getWeather = (event) => {
       if (event.key === "Enter") {
+
         fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${apiKey}`).then(
           response => response.json()
         ).then(
           data => {
             setWeatherData(data)
-          })
-          if (weatherData.cod !== "200") {
-            var errorElement = document.getElementById("error");
-            errorElement.innerHTML = errorMessage;
-            errorElement.style.display = 'block';
-            
-
-          }
+          })          
     }
 
   }
