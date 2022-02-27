@@ -7,7 +7,6 @@ function App() {
   const apiKey = '94a7c2e9db8671f07ef4bc377004a4f8'
   const [weatherData, setWeatherData] = useState("")
   const [city, setCity] = useState("")
-
   var message = "Enter any city and press Enter!"
   let errorMessage = "404 City not found"
 
@@ -27,7 +26,6 @@ function App() {
               console.log(errorMessage) 
             }
           }
-        
           setTimeout(timeOutPart, 999)
     }
   }
@@ -55,12 +53,9 @@ function App() {
           <p className='temperature' >{Math.round(weatherData.main.temp)}°C</p>
           <img src={require (`./images/${weatherData.weather[0].icon}@2x.png`)} className='image' alt='Weather Icon' />
           <p className='weather' >{weatherData.weather[0].main}</p>
-
         </div>
       )}
-
     </div>
   )
 }
-
 export default App;
