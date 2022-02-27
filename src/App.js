@@ -9,7 +9,7 @@ function App() {
   const [city, setCity] = useState("")
 
   var message = "Enter any city and press Enter!"
-  let errorMessage= "404 City not found"
+  let errorMessage = "404 City not found"
 
   
   const getWeather = (event) => {
@@ -24,19 +24,13 @@ function App() {
 
           function timeOutPart() { // Error message
             if(weatherData.cod === "404") {
-              message = errorMessage
-              console.log(errorMessage)
+              console.log(errorMessage) 
             }
           }
         
           setTimeout(timeOutPart, 999)
     }
   }
-
-
-
-
-
 
   return (
     <div className="container">
