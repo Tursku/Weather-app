@@ -7,7 +7,8 @@ function App() {
   const apiKey = '94a7c2e9db8671f07ef4bc377004a4f8'
   const [weatherData, setWeatherData] = useState("")
   const [city, setCity] = useState("")
-  let message = "Enter any city and press Enter!"
+
+  var message = "Enter any city and press Enter!"
   let errorMessage= "404 City not found"
 
   
@@ -19,20 +20,20 @@ function App() {
         ).then(
           data => {
             setWeatherData(data)
-          })
-          
-    }
+          })     
 
+          function timeOutPart() { // Error message
+            if(weatherData.cod === "404") {
+              message = errorMessage
+              console.log(errorMessage)
+            }
+          }
+        
+          setTimeout(timeOutPart, 999)
+    }
   }
 
-  function timeOutPart() {
-    if(weatherData.cod === "404") {
-      console.log(errorMessage)
-      message = "ei toimi Saatana"
-    }
-  }
 
-  setTimeout(timeOutPart, 50)
 
 
 
@@ -50,6 +51,7 @@ function App() {
       {typeof weatherData.main === 'undefined' ? (
         <div>
           <p className='welcome'>{message}</p>
+          <p className='error'>{errorMessage}</p>
         </div>
 
       ) : (
