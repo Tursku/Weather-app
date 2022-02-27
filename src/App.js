@@ -3,25 +3,40 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  
   const apiKey = '94a7c2e9db8671f07ef4bc377004a4f8'
   const [weatherData, setWeatherData] = useState("")
   const [city, setCity] = useState("")
   let message = "Enter any city and press Enter!"
-  let errorMessage= "Error saatana"
+  let errorMessage= "404 City not found"
 
   
   const getWeather = (event) => {
       if (event.key === "Enter") {
-
+        console.log("working")
         fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${apiKey}`).then(
           response => response.json()
         ).then(
           data => {
             setWeatherData(data)
-          })          
+          })
+          
     }
 
   }
+
+  function timeOutPart() {
+    if(weatherData.cod === "404") {
+      console.log(errorMessage)
+      message = "ei toimi Saatana"
+    }
+  }
+
+  setTimeout(timeOutPart, 50)
+
+
+
+
   return (
     <div className="container">
       <input
@@ -35,7 +50,6 @@ function App() {
       {typeof weatherData.main === 'undefined' ? (
         <div>
           <p className='welcome'>{message}</p>
-          <p className='error' >{errorMessage}</p>
         </div>
 
       ) : (
